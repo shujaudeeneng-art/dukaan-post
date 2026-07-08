@@ -4,17 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ============ SEO META TAGS ============ -->
-<title>Dukaan Post – Free Social Media Post Generator for Shopkeepers | Urdu & English</title>
-<meta name="description" content="Dukaan Post se free mein apni dukaan ke liye professional social media posts banayein — Eid sale, discount offers, new arrivals aur bohot kuch. Urdu aur English dono mein, sirf 10 second mein. Koi signup nahi, bilkul free.">
-<meta name="keywords" content="social media post generator, dukaan post generator, free social media caption maker, urdu post generator, shopkeeper marketing tool, discount post maker, eid sale post, business post generator pakistan, small business social media, free caption generator urdu">
+<title>Dukaan Post – Free Social Media Post & Poster Generator for Shopkeepers | Urdu & English</title>
+<meta name="description" content="Dukaan Post se free mein apni dukaan ke liye professional social media posts aur posters banayein — Eid sale, discount offers, new arrivals aur bohot kuch. Urdu aur English dono mein, sirf 10 second mein. Koi signup nahi, bilkul free.">
+<meta name="keywords" content="social media post generator, poster maker, dukaan post generator, free social media caption maker, urdu post generator, shopkeeper marketing tool, discount post maker, eid sale post, business post generator pakistan, small business social media, free caption generator urdu">
 <meta name="author" content="Dukaan Post">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://dukaanpost.com/">
 
-<!-- ============ OPEN GRAPH / SOCIAL SHARING ============ -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dukaan Post – Free Social Media Post Generator for Shopkeepers">
+<meta property="og:title" content="Dukaan Post – Free Social Media Post & Poster Generator for Shopkeepers">
 <meta property="og:description" content="Apni dukaan ke liye professional social media posts free mein banayein. Discount offers, Eid sales, new arrivals — Urdu aur English mein, chand seconds mein.">
 <meta property="og:url" content="https://dukaanpost.com/">
 <meta property="og:image" content="https://dukaanpost.com/og-image.png">
@@ -22,11 +20,10 @@
 <meta property="og:site_name" content="Dukaan Post">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dukaan Post – Free Social Media Post Generator for Shopkeepers">
+<meta name="twitter:title" content="Dukaan Post – Free Social Media Post & Poster Generator for Shopkeepers">
 <meta name="twitter:description" content="Apni dukaan ke liye professional social media posts free mein banayein — Urdu aur English mein, chand seconds mein.">
 <meta name="twitter:image" content="https://dukaanpost.com/og-image.png">
 
-<!-- ============ STRUCTURED DATA (JSON-LD) FOR GOOGLE ============ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -50,46 +47,7 @@
 }
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Dukaan Post kya hai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dukaan Post ek free online tool hai jo chhote dukaandaron aur business owners ko sirf chand seconds mein professional social media posts banane mein madad karta hai — Facebook, Instagram, WhatsApp Status ke liye, Urdu aur English dono zubano mein."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kya Dukaan Post istemal karne ke paise lagte hain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nahi, Dukaan Post bilkul free hai. Koi signup, credit card, ya subscription ki zaroorat nahi hai."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kya posts Urdu mein bhi ban sakte hain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ji haan, Dukaan Post Urdu aur English dono zubano mein posts generate karta hai, taake aap apne customers tak unki pasandeeda zuban mein pahunch saken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kaunse business categories ke liye posts ban sakte hain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kapron ki dukaan, mobile shop, restaurant, bakery, cosmetics, electronics, grocery store, aur kayi doosre business types ke liye templates maujood hain."
-      }
-    }
-  ]
-}
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
   :root {
@@ -140,7 +98,7 @@
   }
   nav.site-nav a:hover { color: var(--primary); }
 
-  main { max-width: 1000px; margin: 0 auto; padding: 0 18px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 0 18px; }
 
   .hero {
     text-align: center;
@@ -174,14 +132,21 @@
     border-radius: 20px;
   }
 
-  /* ---- TOOL CARD ---- */
+  /* ---- MAIN CONTENT LAYOUT ---- */
+  .workspace-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 34px;
+  }
+
   .tool-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 26px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-    margin-bottom: 34px;
+    height: fit-content;
   }
   .form-grid {
     display: grid;
@@ -197,7 +162,7 @@
     color: var(--text);
     margin-bottom: 6px;
   }
-  select, input[type="text"], input[type="number"] {
+  select, input[type="text"], input[type="number"], input[type="file"] {
     width: 100%;
     padding: 11px 12px;
     border: 1.5px solid var(--border);
@@ -251,10 +216,142 @@
   #generateBtn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255,122,26,0.35); }
   #generateBtn:active { transform: translateY(0); }
 
+  /* ---- PREVIEW AREA ---- */
+  .preview-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .preview-title-bar {
+    align-self: flex-start;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+  }
+
+  /* ---- DYNAMIC POSTER CANVAS (1:1 Square) ---- */
+  #posterCanvas {
+    width: 450px;
+    height: 450px;
+    background: #faf4ee;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border-radius: 4px;
+  }
+  
+  .poster-left {
+    width: 58%;
+    height: 100%;
+    padding: 30px 20px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 2;
+    position: relative;
+  }
+
+  #canvasHeading {
+    font-size: 26px;
+    font-weight: 800;
+    color: #a86b51;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    word-break: break-word;
+  }
+
+  #canvasDetails {
+    font-size: 14px;
+    color: #4a4a4a;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .poster-meta-item {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .poster-right {
+    width: 42%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .poster-image-frame {
+    width: 130%;
+    height: 100%;
+    border-radius: 50% 0 0 50%;
+    background: #e5e9f0;
+    position: absolute;
+    right: -30%;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-left: 4px solid #fff;
+  }
+
+  #canvasBadge {
+    position: absolute;
+    bottom: 130px;
+    left: -35px;
+    width: 75px;
+    height: 75px;
+    background: #bc8267;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 3;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  #downloadImageBtn {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 450px;
+    background: #0d7a4f;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    text-align: center;
+  }
+
   /* ---- RESULTS ---- */
   #results {
     margin-top: 24px;
     display: none;
+    grid-column: 1 / -1;
   }
   #results.show { display: block; }
   .result-card {
@@ -287,16 +384,6 @@
     cursor: pointer;
   }
   .copy-btn.copied { background: #2e9e5b; }
-  .regen-btn {
-    background: #eef0f3;
-    color: var(--text);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-  }
 
   .hashtag-row {
     font-size: 13px;
@@ -305,7 +392,7 @@
     word-break: break-word;
   }
 
-  /* ---- INFO SECTIONS (SEO CONTENT) ---- */
+  /* ---- INFO SECTIONS ---- */
   .info-section {
     padding: 30px 0;
     border-top: 1px solid var(--border);
@@ -369,6 +456,10 @@
   }
   footer.site-footer a { margin: 0 8px; }
 
+  @media (max-width: 900px) {
+    .workspace-layout { grid-template-columns: 1fr; }
+    #posterCanvas { width: 100%; max-width: 450px; height: 450px; }
+  }
   @media (max-width: 620px) {
     .form-grid { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: 1fr; }
@@ -391,72 +482,100 @@
 <main>
 
   <section class="hero">
-    <h1>Apni Dukaan Ke Liye Free Social Media Post Banayein — Sirf 10 Second Mein</h1>
-    <p class="sub">Discount offers, Eid sale, naye stock ke posts Urdu aur English mein instantly generate karein। Koi signup nahi, bilkul free।</p>
+    <h1>Apni Dukaan Ke Liye Free Social Media Post Aur Image Banayein</h1>
+    <p class="sub">Discount offers, Eid sale, naye stock ke professional graphics banners aur text Urdu aur English mein instantly generate karein।</p>
     <div class="badge-row">
       <span class="badge">✓ 100% Free</span>
-      <span class="badge">✓ Koi Signup Nahi</span>
+      <span class="badge">✓ Image Downloader</span>
       <span class="badge">✓ Urdu + English</span>
       <span class="badge">✓ Instant Copy</span>
     </div>
   </section>
 
-  <section id="tool" class="tool-card">
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="ur" id="langUrBtn">اردو</button>
-      <button class="lang-btn" data-lang="en" id="langEnBtn">English</button>
-    </div>
+  <div class="workspace-layout" id="tool">
+    
+    <section class="tool-card">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ur" id="langUrBtn">اردو</button>
+        <button class="lang-btn" data-lang="en" id="langEnBtn">English</button>
+      </div>
 
-    <div class="form-grid">
-      <div>
-        <label for="businessType">Business Ki Category</label>
-        <select id="businessType">
-          <option value="clothing">Kapron Ki Dukaan (Clothing)</option>
-          <option value="mobile">Mobile Shop</option>
-          <option value="restaurant">Restaurant / Food</option>
-          <option value="bakery">Bakery / Sweets</option>
-          <option value="cosmetics">Cosmetics / Beauty</option>
-          <option value="electronics">Electronics</option>
-          <option value="grocery">Grocery Store</option>
-          <option value="shoes">Shoes / Footwear</option>
-          <option value="jewelry">Jewelry / Ornaments</option>
-          <option value="general">General / Other</option>
-        </select>
+      <div class="form-grid">
+        <div>
+          <label for="businessType">Business Ki Category</label>
+          <select id="businessType">
+            <option value="clothing">Kapron Ki Dukaan (Clothing)</option>
+            <option value="mobile">Mobile Shop</option>
+            <option value="restaurant">Restaurant / Food</option>
+            <option value="bakery">Bakery / Sweets</option>
+            <option value="cosmetics">Cosmetics / Beauty</option>
+            <option value="electronics">Electronics</option>
+            <option value="grocery">Grocery Store</option>
+            <option value="shoes">Shoes / Footwear</option>
+            <option value="jewelry">Jewelry / Ornaments</option>
+            <option value="general">General / Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="postType">Post Ka Type</label>
+          <select id="postType">
+            <option value="discount">Discount / Sale Offer</option>
+            <option value="newarrival">Naya Stock Aaya Hai</option>
+            <option value="eid">Eid Sale</option>
+            <option value="weekend">Weekend / Friday Offer</option>
+            <option value="clearance">Clearance / Stock Khatam</option>
+            <option value="opening">Naye Store Ka Opening</option>
+            <option value="festive">General Festive Sale</option>
+          </select>
+        </div>
+        <div>
+          <label for="productName">Product/Item Ka Naam (optional)</label>
+          <input type="text" id="productName" placeholder="Jaise: Lawn Suits, iPhone Cover">
+        </div>
+        <div>
+          <label for="discountPercent">Discount % (optional)</label>
+          <input type="number" id="discountPercent" placeholder="Jaise: 50" min="1" max="90">
+        </div>
+        <div>
+          <label for="cityName">Sheher/Location (optional)</label>
+          <input type="text" id="cityName" placeholder="Jaise: Lahore">
+        </div>
+        <div>
+          <label for="contactInfo">Contact / WhatsApp Number (optional)</label>
+          <input type="text" id="contactInfo" placeholder="Jaise: 03216687301">
+        </div>
+        <div class="full-width">
+          <label for="productImage">Product Ki Tasveer Upload Karen (Image Layout)</label>
+          <input type="file" id="productImage" accept="image/*">
+        </div>
       </div>
-      <div>
-        <label for="postType">Post Ka Type</label>
-        <select id="postType">
-          <option value="discount">Discount / Sale Offer</option>
-          <option value="newarrival">Naya Stock Aaya Hai</option>
-          <option value="eid">Eid Sale</option>
-          <option value="weekend">Weekend / Friday Offer</option>
-          <option value="clearance">Clearance / Stock Khatam</option>
-          <option value="opening">Naye Store Ka Opening</option>
-          <option value="festive">General Festive Sale</option>
-        </select>
-      </div>
-      <div>
-        <label for="productName">Product/Item Ka Naam (optional)</label>
-        <input type="text" id="productName" placeholder="Jaise: Lawn Suits, iPhone Cover">
-      </div>
-      <div>
-        <label for="discountPercent">Discount % (optional)</label>
-        <input type="number" id="discountPercent" placeholder="Jaise: 30" min="1" max="90">
-      </div>
-      <div>
-        <label for="cityName">Sheher/Location (optional)</label>
-        <input type="text" id="cityName" placeholder="Jaise: Lahore">
-      </div>
-      <div>
-        <label for="contactInfo">Contact / WhatsApp Number (optional)</label>
-        <input type="text" id="contactInfo" placeholder="Jaise: 0300-1234567">
-      </div>
-    </div>
 
-    <button id="generateBtn">✨ Post Generate Karein</button>
+      <button id="generateBtn">✨ Post & Banner Generate Karein</button>
+    </section>
+
+    <section class="preview-card">
+      <div class="preview-title-bar">👁️ Live Design Preview:</div>
+      
+      <div id="posterCanvas">
+        <div class="poster-left">
+          <div id="canvasHeading">NEW ARRIVAL</div>
+          <div id="canvasDetails">Fresh collection is now available in-store. Come check out the latest designs today.</div>
+          <div id="canvasLocation" class="poster-meta-item">📍 Lahore</div>
+          <div id="canvasContact" class="poster-meta-item">📞 03216687301</div>
+        </div>
+        <div class="poster-right">
+          <div class="poster-image-frame" id="canvasImageFrame">
+            <div id="canvasBadge">50%<br>OFF</div>
+          </div>
+        </div>
+      </div>
+
+      <button id="downloadImageBtn">📥 Download Poster Image (PNG)</button>
+    </section>
 
     <div id="results"></div>
-  </section>
+
+  </div>
 
   <section id="how-it-works" class="info-section">
     <h2>Dukaan Post Kaise Kaam Karta Hai?</h2>
@@ -464,63 +583,36 @@
       <div class="step-box">
         <div class="num">1</div>
         <h4>Details Bharein</h4>
-        <p>Apna business type aur post ka maqsad chunein — discount, naya stock, ya Eid sale.</p>
+        <p>Apna business type chunein, offer likhein aur kapron ya product ki photo lagayein.</p>
       </div>
       <div class="step-box">
         <div class="num">2</div>
-        <h4>Generate Karein</h4>
-        <p>Ek click mein 3 different professional posts turant tayyar ho jayenge.</p>
+        <h4>Live Preview Dekhein</h4>
+        <p>Right side par aapka professional graphic poster design khud-ba-khud tayyar ho jayega.</p>
       </div>
       <div class="step-box">
         <div class="num">3</div>
-        <h4>Copy Aur Post Karein</h4>
-        <p>Jo post pasand aaye copy karein aur Facebook, Instagram ya WhatsApp Status par laga dein.</p>
+        <h4>Download aur Share Karein</h4>
+        <p>Banner image download karein aur caption copy karke WhatsApp/Instagram par dhamaka machayein.</p>
       </div>
     </div>
   </section>
 
   <section class="info-section">
     <h2>Chhote Business Owners Ke Liye Social Media Marketing Kyun Zaroori Hai?</h2>
-    <p>Aaj kal har customer social media par hai — Facebook, Instagram, aur WhatsApp Status roz dekhta hai. Lekin har roz naye, achay posts likhna waqt talab hota hai, aur zyada tar dukaandaron ke paas na waqt hota hai na koi marketing team. Yahi wajah hai ke bohot se chhote business apna social media active nahi rakh pate, jabke unke competitors regularly posts kar ke customers attract kar rahe hote hain.</p>
-    <p>Dukaan Post is problem ka simple hal hai. Yeh tool khaas tor par Pakistan aur South Asia ke chhote dukaandaron, boutique owners, mobile shop walon, aur restaurant owners ke liye banaya gaya hai, taake woh bina kisi marketing expert ki madad ke professional, attractive posts sirf seconds mein bana saken — wo bhi Urdu aur English dono mein.</p>
-
-    <h3>Kis Kis Business Ke Liye Useful Hai?</h3>
-    <ul>
-      <li>Kapron ki dukaanein aur boutiques (lawn, bridal, casual wear)</li>
-      <li>Mobile aur electronics shops</li>
-      <li>Restaurants, bakeries, aur food outlets</li>
-      <li>Cosmetics aur beauty product sellers</li>
-      <li>Grocery aur general stores</li>
-      <li>Jewelry aur footwear shops</li>
-      <li>Online sellers jo Instagram/Facebook par bechte hain</li>
-    </ul>
-
-    <h3>Free Kyun Hai?</h3>
-    <p>Dukaan Post bilkul free hai kyunke hum chahte hain ke Pakistan ke har chhote dukaandaar ko digital marketing ka fayda mile, chahe unka budget kitna bhi ho. Koi hidden charges, koi subscription, koi credit card zaroori nahi.</p>
+    <p>Aaj kal har customer social media par hai — Facebook, Instagram, aur WhatsApp Status roz dekhta hai. Lekin har roz naye, achay posts likhna waqt talab hota hai, aur zyada tar dukaandaron ke paas na waqt hota hai na koi marketing team. Yahi wajah hai ke bohot se chhote business apna social media active nahi rakh pate.</p>
+    <p>Dukaan Post is problem ka simple hal hai. Yeh tool khaas tor par Pakistan aur South Asia ke chhote dukaandaron, boutique owners, mobile shop walon, aur restaurant owners ke liye banaya gaya hai, taake woh bina kisi marketing expert ki madad ke professional, attractive posts aur images sirf seconds mein bana saken.</p>
   </section>
 
   <section id="faq" class="info-section">
     <h2>Aksar Puche Jane Wale Sawalat (FAQ)</h2>
-
     <div class="faq-item">
       <h3>Dukaan Post kya hai?</h3>
-      <p>Dukaan Post ek free online tool hai jo chhote dukaandaron aur business owners ko sirf chand seconds mein professional social media posts banane mein madad karta hai — Facebook, Instagram, aur WhatsApp Status ke liye, Urdu aur English dono zubano mein.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Kya Dukaan Post istemal karne ke paise lagte hain?</h3>
-      <p>Nahi, Dukaan Post bilkul free hai. Koi signup, credit card, ya subscription ki zaroorat nahi hai.</p>
+      <p>Dukaan Post ek free online tool hai jo chhote dukaandaron ko marketing captions ke sath-sath ready-to-use graphic post images banane ki suhulat deta hai.</p>
     </div>
     <div class="faq-item">
       <h3>Kya posts Urdu mein bhi ban sakte hain?</h3>
-      <p>Ji haan, Dukaan Post Urdu aur English dono zubano mein posts generate karta hai, taake aap apne customers tak unki pasandeeda zuban mein pahunch saken.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Kaunse business categories ke liye posts ban sakte hain?</h3>
-      <p>Kapron ki dukaan, mobile shop, restaurant, bakery, cosmetics, electronics, grocery store, jewelry, footwear, aur kayi doosre business types ke liye templates maujood hain.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Kya main generated post ko edit kar sakta hoon?</h3>
-      <p>Bilkul. Post copy karne ke baad aap use apni marzi se edit kar sakte hain — apna phone number, address, ya koi bhi detail add ya remove kar sakte hain.</p>
+      <p>Ji haan, Dukaan Post Urdu aur English dono zubano mein posts aur poster graphics generate karta hai.</p>
     </div>
   </section>
 
@@ -528,11 +620,6 @@
 
 <footer class="site-footer">
   <p>&copy; <span id="year"></span> Dukaan Post — Chhote Dukaandaron Ke Liye Free Social Media Tool</p>
-  <div>
-    <a href="#tool">Generator</a> |
-    <a href="#faq">FAQ</a> |
-    <a href="#how-it-works">How It Works</a>
-  </div>
 </footer>
 
 <script src="script.js"></script>

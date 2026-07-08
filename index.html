@@ -4,622 +4,212 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dukaan Post – Free Social Media Post & Poster Generator for Shopkeepers | Urdu & English</title>
-<meta name="description" content="Dukaan Post se free mein apni dukaan ke liye professional social media posts aur posters banayein — Eid sale, discount offers, new arrivals aur bohot kuch. Urdu aur English dono mein, sirf 10 second mein. Koi signup nahi, bilkul free.">
-<meta name="keywords" content="social media post generator, poster maker, dukaan post generator, free social media caption maker, urdu post generator, shopkeeper marketing tool, discount post maker, eid sale post, business post generator pakistan, small business social media, free caption generator urdu">
+<title>Dukaan Post – Free Social Media Post Generator for Shopkeepers | Urdu & English</title>
+<meta name="description" content="Dukaan Post se free mein apni dukaan ke liye professional social media posts banayein — Eid sale, discount offers, new arrivals aur bohot kuch. Urdu aur English dono mein, sirf 10 second mein. Koi signup nahi, bilkul free.">
+<meta name="keywords" content="social media post generator, dukaan post generator, free social media caption maker, urdu post generator, shopkeeper marketing tool, discount post maker, eid sale post, business post generator pakistan, small business social media, free caption generator urdu">
 <meta name="author" content="Dukaan Post">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://dukaanpost.com/">
+<link rel="canonical" href="https://shujaudeeneng-art.github.io/dukaan-post/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dukaan Post – Free Social Media Post & Poster Generator for Shopkeepers">
+<meta property="og:title" content="Dukaan Post – Free Social Media Post Generator for Shopkeepers">
 <meta property="og:description" content="Apni dukaan ke liye professional social media posts free mein banayein. Discount offers, Eid sales, new arrivals — Urdu aur English mein, chand seconds mein.">
-<meta property="og:url" content="https://dukaanpost.com/">
-<meta property="og:image" content="https://dukaanpost.com/og-image.png">
-<meta property="og:locale" content="ur_PK">
-<meta property="og:site_name" content="Dukaan Post">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dukaan Post – Free Social Media Post & Poster Generator for Shopkeepers">
-<meta name="twitter:description" content="Apni dukaan ke liye professional social media posts free mein banayein — Urdu aur English mein, chand seconds mein.">
-<meta name="twitter:image" content="https://dukaanpost.com/og-image.png">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Dukaan Post",
-  "url": "https://dukaanpost.com/",
-  "description": "Free social media post generator for small shopkeepers and businesses in Pakistan. Create discount posts, Eid sale posts, new arrival announcements in Urdu and English instantly.",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "PKR"
-  },
-  "inLanguage": ["ur", "en"],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "127"
-  }
-}
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<meta property="og:url" content="https://shujaudeeneng-art.github.io/dukaan-post/">
 
 <style>
   :root {
-    --bg: #f7f8fa;
-    --card: #ffffff;
     --primary: #0d7a4f;
-    --primary-dark: #075c3a;
-    --accent: #ff7a1a;
-    --text: #1a1f26;
-    --text-dim: #5a6472;
-    --border: #e3e7ec;
+    --primary-dark: #095738;
+    --secondary: #ff7a1a;
+    --bg-light: #f7f8fa;
+    --text-dark: #1a1f26;
+    --text-muted: #5a6472;
+    --border: #e1e4e8;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  a { color: var(--primary); text-decoration: none; }
-  img { max-width: 100%; display: block; }
-
-  header.site-header {
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .logo {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--primary-dark);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  nav.site-nav a {
-    margin-left: 18px;
-    font-size: 14px;
-    color: var(--text-dim);
-    font-weight: 600;
-  }
-  nav.site-nav a:hover { color: var(--primary); }
-
-  main { max-width: 1100px; margin: 0 auto; padding: 0 18px; }
-
-  .hero {
-    text-align: center;
-    padding: 46px 10px 30px;
-  }
-  .hero h1 {
-    font-size: 30px;
-    color: var(--primary-dark);
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-  .hero p.sub {
-    color: var(--text-dim);
-    font-size: 16px;
-    max-width: 560px;
-    margin: 0 auto 6px;
-  }
-  .badge-row {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 14px;
-  }
-  .badge {
-    background: #eafaf2;
-    color: var(--primary-dark);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 5px 12px;
-    border-radius: 20px;
-  }
-
-  /* ---- MAIN CONTENT LAYOUT ---- */
-  .workspace-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 34px;
-  }
-
-  .tool-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 26px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-    height: fit-content;
-  }
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 16px;
-  }
-  .full-width { grid-column: 1 / -1; }
-  label {
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-  select, input[type="text"], input[type="number"], input[type="file"] {
-    width: 100%;
-    padding: 11px 12px;
-    border: 1.5px solid var(--border);
-    border-radius: 9px;
-    font-size: 14px;
-    font-family: inherit;
-    background: #fbfcfd;
-    color: var(--text);
-  }
-  select:focus, input:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-
-  .lang-toggle {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .lang-btn {
-    flex: 1;
-    padding: 10px;
-    border: 1.5px solid var(--border);
-    border-radius: 9px;
-    background: #fbfcfd;
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-    color: var(--text-dim);
-    transition: all 0.15s ease;
-  }
-  .lang-btn.active {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #fff;
-  }
-
-  #generateBtn {
-    width: 100%;
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: 800;
-    border-radius: 10px;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    transition: transform 0.1s ease, box-shadow 0.15s ease;
-  }
-  #generateBtn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255,122,26,0.35); }
-  #generateBtn:active { transform: translateY(0); }
-
-  /* ---- PREVIEW AREA ---- */
-  .preview-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 26px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .preview-title-bar {
-    align-self: flex-start;
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--primary-dark);
-  }
-
-  /* ---- DYNAMIC POSTER CANVAS (1:1 Square) ---- */
-  #posterCanvas {
-    width: 450px;
-    height: 450px;
-    background: #faf4ee;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    border-radius: 4px;
-  }
+  body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
   
-  .poster-left {
-    width: 58%;
-    height: 100%;
-    padding: 30px 20px 30px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-    z-index: 2;
-    position: relative;
-  }
+  .navbar { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+  .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  
+  .lang-switcher { display: flex; gap: 8px; }
+  .lang-btn { background: #fff; border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s; }
+  .lang-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-  #canvasHeading {
-    font-size: 26px;
-    font-weight: 800;
-    color: #a86b51;
-    line-height: 1.2;
-    margin-bottom: 12px;
-    word-break: break-word;
-  }
+  main { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
 
-  #canvasDetails {
-    font-size: 14px;
-    color: #4a4a4a;
-    line-height: 1.5;
-    margin-bottom: 18px;
-    white-space: pre-wrap;
-    word-break: break-word;
-  }
-
-  .poster-meta-item {
-    font-size: 14px;
-    font-weight: 700;
-    color: #222222;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .poster-right {
-    width: 42%;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
-
-  .poster-image-frame {
-    width: 130%;
-    height: 100%;
-    border-radius: 50% 0 0 50%;
-    background: #e5e9f0;
-    position: absolute;
-    right: -30%;
-    top: 0;
+  /* Dynamic Hero Banner */
+  .hero-banner { 
+    background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200&q=80');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    border-left: 4px solid #fff;
-  }
-
-  #canvasBadge {
-    position: absolute;
-    bottom: 130px;
-    left: -35px;
-    width: 75px;
-    height: 75px;
-    background: #bc8267;
     color: #fff;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 14px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    z-index: 3;
-    line-height: 1.2;
+    padding: 50px 30px;
+    border-radius: 16px;
     text-align: center;
+    margin-bottom: 30px;
+    transition: background-image 0.5s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   }
+  .hero-banner h1 { font-size: 32px; margin-bottom: 12px; font-weight: 700; }
+  .hero-banner p { font-size: 16px; color: #e1e4e8; max-width: 700px; margin: 0 auto; }
 
-  #downloadImageBtn {
-    margin-top: 20px;
-    width: 100%;
-    max-width: 450px;
-    background: #0d7a4f;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    font-size: 15px;
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    display: none;
-    text-align: center;
-  }
+  .workspace { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+  @media (max-width: 768px) { .workspace { grid-template-columns: 1fr; } }
 
-  /* ---- RESULTS ---- */
-  #results {
-    margin-top: 24px;
-    display: none;
-    grid-column: 1 / -1;
-  }
-  #results.show { display: block; }
-  .result-card {
-    background: #fbfcfd;
-    border: 1.5px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 14px;
-    position: relative;
-  }
-  .result-card .result-text {
-    white-space: pre-wrap;
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 12px;
-  }
-  .result-actions {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .copy-btn {
-    background: var(--primary);
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .copy-btn.copied { background: #2e9e5b; }
+  .card { background: #fff; border-radius: 16px; padding: 25px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.01); }
+  .card-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; color: var(--primary); display: flex; align-items: center; gap: 8px; border-bottom: 2px solid var(--bg-light); padding-bottom: 10px; }
 
-  .hashtag-row {
-    font-size: 13px;
-    color: var(--primary-dark);
-    margin-top: 8px;
-    word-break: break-word;
-  }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--text-dark); }
+  .form-control { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 15px; background: #fff; transition: border-color 0.2s; }
+  .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(13,122,79,0.1); }
 
-  /* ---- INFO SECTIONS ---- */
-  .info-section {
-    padding: 30px 0;
-    border-top: 1px solid var(--border);
-  }
-  .info-section h2 {
-    font-size: 22px;
-    color: var(--primary-dark);
-    margin-bottom: 14px;
-  }
-  .info-section h3 {
-    font-size: 17px;
-    margin: 18px 0 8px;
-    color: var(--text);
-  }
-  .info-section p, .info-section li {
-    color: var(--text-dim);
-    font-size: 14.5px;
-    margin-bottom: 10px;
-  }
-  .info-section ul { padding-inline-start: 20px; }
+  .btn-generate { width: 100%; background: var(--secondary); color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.2s; margin-top: 10px; }
+  .btn-generate:hover { background: #e06613; }
 
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 18px 0;
-  }
-  .step-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    text-align: center;
-  }
-  .step-box .num {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800;
-    margin: 0 auto 10px;
-  }
-  .step-box h4 { font-size: 14px; margin-bottom: 6px; }
-  .step-box p { font-size: 13px; margin: 0; }
+  .results-container { display: none; flex-direction: column; gap: 20px; }
+  .results-container.show { display: flex; }
+  .result-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 12px; padding: 20px; position: relative; }
+  .result-text { font-size: 16px; white-space: pre-wrap; color: var(--text-dark); margin-bottom: 15px; line-height: 1.7; }
+  .hashtag-row { color: #0066cc; font-size: 14px; margin-bottom: 15px; font-weight: 500; }
+  .result-actions { display: flex; justify-content: flex-end; }
+  .copy-btn { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+  .copy-btn:hover { background: var(--primary); color: #fff; }
+  .copy-btn.copied { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 14px 0;
-  }
-  .faq-item h3 { margin-top: 0; font-size: 15.5px; color: var(--primary-dark); }
+  .seo-content { margin-top: 50px; border-top: 1px solid var(--border); padding-top: 40px; }
+  .seo-content h2 { color: var(--primary); font-size: 24px; margin-bottom: 15px; }
+  .seo-content p { color: var(--text-muted); margin-bottom: 15px; font-size: 15px; }
 
-  footer.site-footer {
-    background: var(--card);
-    border-top: 1px solid var(--border);
-    padding: 24px 18px;
-    text-align: center;
-    color: var(--text-dim);
-    font-size: 13px;
-    margin-top: 20px;
-  }
-  footer.site-footer a { margin: 0 8px; }
+  .faq-section { margin-top: 40px; background: #fff; border-radius: 16px; padding: 30px; border: 1px solid var(--border); }
+  .faq-section h2 { color: var(--primary); margin-bottom: 20px; font-size: 22px; text-align: center; }
+  .faq-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--bg-light); }
+  .faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .faq-item h3 { font-size: 16px; color: var(--text-dark); margin-bottom: 8px; font-weight: 700; }
+  .faq-item p { color: var(--text-muted); font-size: 14px; }
 
-  @media (max-width: 900px) {
-    .workspace-layout { grid-template-columns: 1fr; }
-    #posterCanvas { width: 100%; max-width: 450px; height: 450px; }
-  }
-  @media (max-width: 620px) {
-    .form-grid { grid-template-columns: 1fr; }
-    .steps-grid { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 24px; }
-    nav.site-nav a { margin-left: 10px; font-size: 12px; }
-  }
+  .site-footer { text-align: center; padding: 30px; margin-top: 50px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 14px; }
+  .site-footer a { color: var(--primary); text-decoration: none; margin: 0 5px; font-weight: 600; }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="logo">🏪 Dukaan Post</div>
-  <nav class="site-nav">
-    <a href="#tool">Generator</a>
-    <a href="#how-it-works">Kaise Kaam Karta Hai</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-</header>
+<nav class="navbar">
+  <a href="#tool" class="logo">🏪 Dukaan Post</a>
+  <div class="lang-switcher">
+    <button id="langUrBtn" class="lang-btn active">Urdu</button>
+    <button id="langEnBtn" class="lang-btn">English</button>
+  </div>
+</nav>
 
 <main>
+  <header class="hero-banner" id="heroBanner">
+    <h1 id="dynamicTitle">Apni Dukaan Ki Marketing Ke Liye Posts Banayein</h1>
+    <p id="dynamicSub">Sirf 10 seconds mein Facebook aur WhatsApp status ke liye professional captions generate karein.</p>
+  </header>
 
-  <section class="hero">
-    <h1>Apni Dukaan Ke Liye Free Social Media Post Aur Image Banayein</h1>
-    <p class="sub">Discount offers, Eid sale, naye stock ke professional graphics banners aur text Urdu aur English mein instantly generate karein।</p>
-    <div class="badge-row">
-      <span class="badge">✓ 100% Free</span>
-      <span class="badge">✓ Image Downloader</span>
-      <span class="badge">✓ Urdu + English</span>
-      <span class="badge">✓ Instant Copy</span>
-    </div>
-  </section>
-
-  <div class="workspace-layout" id="tool">
-    
-    <section class="tool-card">
-      <div class="lang-toggle">
-        <button class="lang-btn active" data-lang="ur" id="langUrBtn">اردو</button>
-        <button class="lang-btn" data-lang="en" id="langEnBtn">English</button>
-      </div>
-
-      <div class="form-grid">
-        <div>
-          <label for="businessType">Business Ki Category</label>
-          <select id="businessType">
+  <section id="tool" class="workspace">
+    <div class="card">
+      <div class="card-title">📝 Details Dalein</div>
+      <form id="generatorForm" onsubmit="return false;">
+        
+        <div class="form-group">
+          <label for="businessType">Dukaan / Business Ki Category</label>
+          <select id="businessType" class="form-control">
+            <option value="general">General Store / Products</option>
             <option value="clothing">Kapron Ki Dukaan (Clothing)</option>
-            <option value="mobile">Mobile Shop</option>
-            <option value="restaurant">Restaurant / Food</option>
-            <option value="bakery">Bakery / Sweets</option>
-            <option value="cosmetics">Cosmetics / Beauty</option>
-            <option value="electronics">Electronics</option>
-            <option value="grocery">Grocery Store</option>
-            <option value="shoes">Shoes / Footwear</option>
-            <option value="jewelry">Jewelry / Ornaments</option>
-            <option value="general">General / Other</option>
+            <option value="mobile">Mobile & Accessories Shop</option>
+            <option value="restaurant">Restaurant / Food Point</option>
+            <option value="bakery">Bakery & Sweets Shop</option>
+            <option value="cosmetics">Cosmetics & Beauty</option>
+            <option value="electronics">Home Electronics</option>
+            <option value="grocery">Grocery / Karyana Store</option>
+            <option value="shoes">Jooton Ki Dukaan (Footwear)</option>
+            <option value="jewelry">Jewelry Shop</option>
           </select>
         </div>
-        <div>
-          <label for="postType">Post Ka Type</label>
-          <select id="postType">
-            <option value="discount">Discount / Sale Offer</option>
-            <option value="newarrival">Naya Stock Aaya Hai</option>
-            <option value="eid">Eid Sale</option>
-            <option value="weekend">Weekend / Friday Offer</option>
-            <option value="clearance">Clearance / Stock Khatam</option>
-            <option value="opening">Naye Store Ka Opening</option>
-            <option value="festive">General Festive Sale</option>
+
+        <div class="form-group">
+          <label for="postType">Kis Tarah Ki Post Banani Hai?</label>
+          <select id="postType" class="form-control">
+            <option value="sale">Special Discount / Sale Offer</option>
+            <option value="arrival">New Stock / New Arrival</option>
+            <option value="eid">Eid Mubarak Special Offer</option>
+            <option value="weekend">Weekend Special Deal</option>
+            <option value="clearance">Stock Clearance Sale</option>
           </select>
         </div>
-        <div>
-          <label for="productName">Product/Item Ka Naam (optional)</label>
-          <input type="text" id="productName" placeholder="Jaise: Lawn Suits, iPhone Cover">
-        </div>
-        <div>
-          <label for="discountPercent">Discount % (optional)</label>
-          <input type="number" id="discountPercent" placeholder="Jaise: 50" min="1" max="90">
-        </div>
-        <div>
-          <label for="cityName">Sheher/Location (optional)</label>
-          <input type="text" id="cityName" placeholder="Jaise: Lahore">
-        </div>
-        <div>
-          <label for="contactInfo">Contact / WhatsApp Number (optional)</label>
-          <input type="text" id="contactInfo" placeholder="Jaise: 03216687301">
-        </div>
-        <div class="full-width">
-          <label for="productImage">Product Ki Tasveer Upload Karen (Image Layout)</label>
-          <input type="file" id="productImage" accept="image/*">
-        </div>
-      </div>
 
-      <button id="generateBtn">✨ Post & Banner Generate Karein</button>
-    </section>
-
-    <section class="preview-card">
-      <div class="preview-title-bar">👁️ Live Design Preview:</div>
-      
-      <div id="posterCanvas">
-        <div class="poster-left">
-          <div id="canvasHeading">NEW ARRIVAL</div>
-          <div id="canvasDetails">Fresh collection is now available in-store. Come check out the latest designs today.</div>
-          <div id="canvasLocation" class="poster-meta-item">📍 Lahore</div>
-          <div id="canvasContact" class="poster-meta-item">📞 03216687301</div>
+        <div class="form-group">
+          <label for="discount">Discount Offer (Optional - Agar nahi dena toh khali chhor dein)</label>
+          <select id="discount" class="form-control">
+            <option value="">No Discount (Koi discount nahi dena)</option>
+            <option value="10%">10% OFF</option>
+            <option value="20%">20% OFF</option>
+            <option value="30%">30% OFF</option>
+            <option value="50%">50% OFF</option>
+            <option value="Buy 1 Get 1 Free">Buy 1 Get 1 Free (Ek ke sath ek free)</option>
+            <option value="Free Delivery">Free Home Delivery</option>
+          </select>
         </div>
-        <div class="poster-right">
-          <div class="poster-image-frame" id="canvasImageFrame">
-            <div id="canvasBadge">50%<br>OFF</div>
-          </div>
+
+        <div class="form-group">
+          <label for="city">Apne Shehar Ka Naam</label>
+          <input type="text" id="city" class="form-control" placeholder="Jaise: Lahore, Karachi, Faisalabad..." required>
         </div>
-      </div>
 
-      <button id="downloadImageBtn">📥 Download Poster Image (PNG)</button>
-    </section>
+        <div class="form-group">
+          <label for="contact">WhatsApp / Phone Number</label>
+          <input type="text" id="contact" class="form-control" placeholder="Jaise: 03001234567" required>
+        </div>
 
-    <div id="results"></div>
+        <button type="submit" id="generateBtn" class="btn-generate">✨ Post Generate Karein</button>
+      </form>
+    </div>
 
-  </div>
-
-  <section id="how-it-works" class="info-section">
-    <h2>Dukaan Post Kaise Kaam Karta Hai?</h2>
-    <div class="steps-grid">
-      <div class="step-box">
-        <div class="num">1</div>
-        <h4>Details Bharein</h4>
-        <p>Apna business type chunein, offer likhein aur kapron ya product ki photo lagayein.</p>
-      </div>
-      <div class="step-box">
-        <div class="num">2</div>
-        <h4>Live Preview Dekhein</h4>
-        <p>Right side par aapka professional graphic poster design khud-ba-khud tayyar ho jayega.</p>
-      </div>
-      <div class="step-box">
-        <div class="num">3</div>
-        <h4>Download aur Share Karein</h4>
-        <p>Banner image download karein aur caption copy karke WhatsApp/Instagram par dhamaka machayein.</p>
+    <div class="card">
+      <div class="card-title">🚀 Aap Ki Ready Posts</div>
+      <div id="results" class="results-container">
+        <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Details bhar kar 'Post Generate Karein' par click karein.</p>
       </div>
     </div>
   </section>
 
-  <section class="info-section">
-    <h2>Chhote Business Owners Ke Liye Social Media Marketing Kyun Zaroori Hai?</h2>
-    <p>Aaj kal har customer social media par hai — Facebook, Instagram, aur WhatsApp Status roz dekhta hai. Lekin har roz naye, achay posts likhna waqt talab hota hai, aur zyada tar dukaandaron ke paas na waqt hota hai na koi marketing team. Yahi wajah hai ke bohot se chhote business apna social media active nahi rakh pate.</p>
-    <p>Dukaan Post is problem ka simple hal hai. Yeh tool khaas tor par Pakistan aur South Asia ke chhote dukaandaron, boutique owners, mobile shop walon, aur restaurant owners ke liye banaya gaya hai, taake woh bina kisi marketing expert ki madad ke professional, attractive posts aur images sirf seconds mein bana saken.</p>
+  <section class="seo-content">
+    <h2>Chhote Business Aur Dukaandaron Ke Liye Free Marketing Tool</h2>
+    <p>Dukaan Post Pakistan ke un tamam dukaandaron ke liye banaya gaya hai jo bina kisi marketing manager ya paid software ke apne business ko digital banana chahte hain. Agar aap kapron ki dukaan chalate hain ya mobile shop, ab aapko Facebook aur WhatsApp ke liye Urdu captions likhne mein ghanton zaya nahi karne parenge.</p>
+    <p>Yeh tool bilkul free hai aur background mein advanced templates use karta hai jo aapki details ko fit kar ke aisi posts banata hai jise dekh kar customers khainche chale aayein. Isme koi paid API ya signup system nahi hai, isliye aap ise hamesha bilkul muft istemal kar sakte hain.</p>
   </section>
 
-  <section id="faq" class="info-section">
-    <h2>Aksar Puche Jane Wale Sawalat (FAQ)</h2>
+  <section id="faq" class="faq-section">
+    <h2>Frequently Asked Questions (FAQs)</h2>
     <div class="faq-item">
-      <h3>Dukaan Post kya hai?</h3>
-      <p>Dukaan Post ek free online tool hai jo chhote dukaandaron ko marketing captions ke sath-sath ready-to-use graphic post images banane ki suhulat deta hai.</p>
+      <h3>Dukaan Post kya hai aur yeh kis tarah kaam karta hai?</h3>
+      <p>Dukaan Post ek aasan marketing tool hai jo chhote shopkeepers ko unki shop ke mutabiq chand seconds mein social media posts aur WhatsApp status bana kar deta hai, wo bhi Urdu aur English dono zubano mein.</p>
     </div>
     <div class="faq-item">
-      <h3>Kya posts Urdu mein bhi ban sakte hain?</h3>
-      <p>Ji haan, Dukaan Post Urdu aur English dono zubano mein posts aur poster graphics generate karta hai.</p>
+      <h3>Kya Dukaan Post istemal karne ke paise lagte hain?</h3>
+      <p>Nahi, Dukaan Post bilkul free hai. Koi signup, credit card, ya monthly subscription ki zaroorat nahi hai.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Agar main post mein koi discount offer nahi dena chahta toh kya karoon?</h3>
+      <p>Aap simple Discount wale option mein "No Discount" select kar lein ya use khali chhor dein. Tool automatically aisi post banayega jisme discount ka zikr nahi hoga, aur aapka post bilkul professional lagega.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Kaunse business categories ke liye posts ban sakte hain?</h3>
+      <p>Kapron ki dukaan, mobile shop, restaurant, bakery, cosmetics, electronics, grocery store, jewelry, footwear, aur kayi doosre business types ke liye special themes aur templates maujood hain.</p>
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer">
-  <p>&copy; <span id="year"></span> Dukaan Post — Chhote Dukaandaron Ke Liye Free Social Media Tool</p>
+  <p>&copy; <span id=\"year\"></span> Dukaan Post — Chhote Dukaandaron Ke Liye Free Social Media Tool</p>
+  <div>
+    <a href="#tool">Generator</a> |
+    <a href="#faq">FAQs</a>
+  </div>
 </footer>
 
 <script src="script.js"></script>

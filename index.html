@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dukaan Post – Free Social Media Post Generator for Shopkeepers</title>
+<title>Dukaan Post – Free Social Media Banner & Post Generator</title>
 <style>
   :root {
     --primary: #0d7a4f;
@@ -22,7 +22,7 @@
   
   .hero-banner { 
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1000&q=80');
-    background-size: cover; background-position: center; color: #fff; padding: 40px 20px; border-radius: 12px; text-align: center; margin-bottom: 20px; transition: background-image 0.4s ease;
+    background-size: cover; background-position: center; color: #fff; padding: 40px 20px; border-radius: 12px; text-align: center; margin-bottom: 20px;
   }
   .hero-banner h1 { font-size: 26px; margin-bottom: 8px; }
   
@@ -38,13 +38,18 @@
   .btn-generate { width: 100%; background: var(--secondary); color: #fff; border: none; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 10px; }
   .btn-generate:hover { background: #e06613; }
   
-  .results-container { display: none; flex-direction: column; gap: 15px; }
+  .results-container { display: none; flex-direction: column; gap: 15px; align-items: center; }
   .results-container.show { display: flex; }
-  .result-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 8px; padding: 15px; margin-bottom: 15px; }
-  .result-text { font-size: 15px; white-space: pre-wrap; margin-bottom: 10px; line-height: 1.6; }
-  .hashtag-row { color: #0066cc; font-size: 13px; margin-bottom: 10px; }
-  .copy-btn { background: #fff; border: 1px solid var(--primary); color: var(--primary); padding: 6px 12px; border-radius: 4px; font-weight: 600; cursor: pointer; }
-  .copy-btn:hover { background: var(--primary); color: #fff; }
+  .result-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 8px; padding: 15px; width: 100%; text-align: center; }
+  
+  /* Canvas Preview styling */
+  canvas { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 15px; background: #fff; }
+  
+  .action-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 10px; }
+  .download-btn { background: var(--primary); color: #fff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 15px; }
+  .download-btn:hover { background: #0a5f3d; }
+  .copy-btn { background: #fff; border: 1px solid var(--secondary); color: var(--secondary); padding: 10px 20px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 15px; }
+  .copy-btn:hover { background: var(--secondary); color: #fff; }
 </style>
 </head>
 <body>
@@ -58,8 +63,8 @@
 </nav>
 
 <header class="hero-banner" id="heroBanner">
-  <h1 id="dynamicTitle">Apni Dukaan Ki Marketing Ke Liye Posts Banayein</h1>
-  <p id="dynamicSub">Sirf 10 seconds mein Facebook aur WhatsApp status ke liye professional captions generate karein.</p>
+  <h1 id="dynamicTitle">Apni Dukaan Ki Marketing Ke Liye Photos Banayein</h1>
+  <p id="dynamicSub">Sirf 10 seconds mein professional banners aur captions generate kar ke download karein.</p>
 </header>
 
 <div class="workspace">
@@ -67,9 +72,13 @@
     <div class="card-title">📝 Details Dalein</div>
     <form id="generatorForm" onsubmit="return false;">
       <div class="form-group">
+        <label>Dukaan Ka Naam (Shop Name)</label>
+        <input type="text" id="shopName" class="form-control" placeholder="MashaAllah Clothing, Imran Mobiles..." required>
+      </div>
+
+      <div class="form-group">
         <label>Dukaan / Business Ki Category</label>
         <select id="businessType" class="form-control">
-          <option value="general">General Store / Products</option>
           <option value="clothing">Kapron Ki Dukaan (Clothing)</option>
           <option value="mobile">Mobile & Accessories Shop</option>
           <option value="restaurant">Restaurant / Food Point</option>
@@ -79,6 +88,7 @@
           <option value="grocery">Grocery / Karyana Store</option>
           <option value="shoes">Jooton Ki Dukaan (Footwear)</option>
           <option value="jewelry">Jewelry Shop</option>
+          <option value="general">General Store / Products</option>
         </select>
       </div>
 
@@ -94,13 +104,13 @@
       </div>
 
       <div class="form-group">
-        <label>Discount Offer (Optional - Agar nahi dena toh 'No Discount' hi rehne dein)</label>
+        <label>Discount Offer (Optional)</label>
         <select id="discount" class="form-control">
-          <option value="No Discount">No Discount (Koi discount nahi dena)</option>
-          <option value="10%">10% OFF</option>
-          <option value="20%">20% OFF</option>
-          <option value="30%">30% OFF</option>
-          <option value="50%">50% OFF</option>
+          <option value="No Discount">No Discount</option>
+          <option value="10% OFF">10% OFF</option>
+          <option value="20% OFF">20% OFF</option>
+          <option value="30% OFF">30% OFF</option>
+          <option value="50% OFF">50% OFF</option>
           <option value="Buy 1 Get 1 Free">Buy 1 Get 1 Free</option>
           <option value="Free Delivery">Free Home Delivery</option>
         </select>
@@ -108,7 +118,7 @@
 
       <div class="form-group">
         <label>Apne Shehar Ka Naam</label>
-        <input type="text" id="city" class="form-control" placeholder="Lahore, Karachi, Faisalabad..." required>
+        <input type="text" id="city" class="form-control" placeholder="Lahore, Karachi..." required>
       </div>
 
       <div class="form-group">
@@ -116,14 +126,14 @@
         <input type="text" id="contact" class="form-control" placeholder="03001234567" required>
       </div>
 
-      <button type="button" id="generateBtn" class="btn-generate" onclick="generatePost()">✨ Post Generate Karein</button>
+      <button type="button" id="generateBtn" class="btn-generate" onclick="generatePost()">✨ Photo aur Post Banayein</button>
     </form>
   </div>
 
   <div class="card">
-    <div class="card-title">🚀 Aap Ki Ready Posts</div>
+    <div class="card-title">🚀 Aap Ki Ready Photo & Post</div>
     <div id="results" class="results-container show">
-       <p id="placeholderText" style="color: #5a6472; text-align: center; margin-top: 40px;">Details bhar kar 'Post Generate Karein' par click karein.</p>
+       <p id="placeholderText" style="color: #5a6472; text-align: center; margin-top: 40px;">Details bhar kar 'Photo aur Post Banayein' par click karein.</p>
     </div>
   </div>
 </div>

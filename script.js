@@ -1,6 +1,6 @@
 // ==========================================================
 // DUKAAN POST — Social Media Post Generator for Shopkeepers
-// Template + Canvas Image Creator (No Paid API Required)
+// Dynamic Themes + Optional Discount feature updated
 // ==========================================================
 
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -16,11 +16,74 @@ function setLang(lang) {
   currentLang = lang;
   langUrBtn.classList.toggle('active', lang === 'ur');
   langEnBtn.classList.toggle('active', lang === 'en');
-  // Trigger update on language change to reflect in preview instantly
-  updateLivePreview();
 }
 
-// ---------------- BUSINESS-SPECIFIC WORDING ----------------
+// ---------------- DYNAMIC BANNER & IMAGE MANAGEMENT ----------------
+const BUSINESS_THEMES = {
+  clothing: {
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000&q=80",
+    title: "👗 Kapron Ki Dukaan Marketing Tool",
+    sub: "New Arrivals, Boutique Sales aur Eid Offers ke liye behtareen posts banayein."
+  },
+  mobile: {
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1000&q=80",
+    title: "📱 Mobile & Accessories Shop Status Maker",
+    sub: "Naye Smartphones, Deals aur Repairing Services ko WhatsApp par phelayein."
+  },
+  restaurant: {
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1000&q=80",
+    title: "🍽️ Restaurant & Food Point Post Maker",
+    sub: "Apni Fast Food, Desi Khano ki deals aur discounts ke liye mazaidaar posts banayein."
+  },
+  bakery: {
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1000&q=80",
+    title: "🍰 Bakery & Sweets Marketing Tool",
+    sub: "Fresh Cakes, Sweets aur Halwa Puri ki deals ke liye status lagayein."
+  },
+  cosmetics: {
+    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1000&q=80",
+    title: "💄 Cosmetics & Beauty Products Post Generator",
+    sub: "Branded makeup aur skin care offers ko dukaandar ab khud promote karein."
+  },
+  electronics: {
+    image: "https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=1000&q=80",
+    title: "📺 Home Electronics & Appliances Generator",
+    sub: "AC, Fridge, LED TVs aur appliances par chalne wali offers ko live karein."
+  },
+  grocery: {
+    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=1000&q=80",
+    title: "🛒 Grocery & Karyana Store Status Tool",
+    sub: "Monthly bachat bazar aur daily grocery items ke rates aur offers share karein."
+  },
+  shoes: {
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1000&q=80",
+    title: "👟 Jooton Ki Dukaan (Footwear) Post Generator",
+    sub: "Ladies, Gents aur Kids shoes ke naye stock ki digital marketing karein."
+  },
+  jewelry: {
+    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1000&q=80",
+    title: "💍 Jewelry & Gold Shop Social Posts",
+    sub: "Bridal jewelry, rings aur gold designs par chalne wali promotional posts banayein."
+  },
+  general: {
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1000&q=80",
+    title: "🏪 Apni Dukaan Ki Marketing Ke Liye Posts Banayein",
+    sub: "Sirf 10 seconds mein Facebook aur WhatsApp status ke liye professional captions generate karein."
+  }
+};
+
+// Dropdown change hone par page change karna
+document.getElementById('businessType').addEventListener('change', function(e) {
+  const selectedTheme = BUSINESS_THEMES[e.target.value] || BUSINESS_THEMES['general'];
+  const banner = document.getElementById('heroBanner');
+  
+  banner.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)), url('${selectedTheme.image}')`;
+  document.getElementById('dynamicTitle').textContent = selectedTheme.title;
+  document.getElementById('dynamicSub').textContent = selectedTheme.sub;
+});
+
+
+// ---------------- WORDING DATA FOR POSTS ----------------
 const BUSINESS_LABELS = {
   ur: {
     clothing: "کپڑوں", mobile: "موبائل", restaurant: "کھانے", bakery: "بیکری آئٹمز",
@@ -35,196 +98,86 @@ const BUSINESS_LABELS = {
 };
 
 const BUSINESS_EMOJI = {
-  clothing: "👗👚", mobile: "📱", restaurant: "🍽️🍕", bakery: "🎂🍰",
-  cosmetics: "💄✨", electronics: "🔌💻", grocery: "🛒", shoes: "👟",
-  jewelry: "💍✨", general: "🛍️"
+  clothing: "👗👚", mobile: "📱", restaurant: "🍽️", bakery: "🍰",
+  cosmetics: "💄", electronics: "📺", grocery: "🛒", shoes: "👟", jewelry: "💍", general: "📦"
 };
 
-// ---------------- HASHTAG BANK ----------------
-const HASHTAGS = {
-  clothing: ["#FashionPakistan", "#LawnCollection", "#BoutiqueStyle", "#OOTD", "#SaleAlert"],
-  mobile: ["#MobileShop", "#TechDeals", "#SmartphoneSale", "#GadgetLovers"],
-  restaurant: ["#FoodieLife", "#Foodstagram", "#EatLocal", "#TasteTheBest"],
-  bakery: ["#BakeryLove", "#FreshBaked", "#SweetTreats", "#CakeLovers"],
-  cosmetics: ["#BeautyDeals", "#MakeupSale", "#SkincareRoutine", "#GlowUp"],
-  electronics: ["#TechSale", "#GadgetDeals", "#ElectronicsStore"],
-  grocery: ["#GroceryDeals", "#FreshStock", "#DailyEssentials"],
-  shoes: ["#ShoeGame", "#FootwearFashion", "#SneakerSale"],
-  jewelry: ["#JewelryLovers", "#OrnamentSale", "#TraditionalJewelry"],
-  general: ["#SaleAlert", "#ShopNow", "#BestDeals", "#SupportLocalBusiness"]
-};
+// ---------------- GENERATION LOGIC ----------------
+document.getElementById('generatorForm').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-// ---------------- POST TEMPLATES (URDU) ----------------
-const TEMPLATES_UR = {
-  discount: [
-    (p) => `🔥 بڑی سیل شروع! 🔥\n\n${p.emoji} ${p.product} پر ${p.discount}% تک ڈسکاؤنٹ صرف چند دنوں کے لیے!\n${p.city}\n\nجلدی کریں، اسٹاک محدود ہے۔ ابھی وزٹ کریں یا آرڈر کریں۔\n${p.contact}`,
-    (p) => `${p.emoji} خوشخبری! ${p.product} پر خصوصی آفر\n\nصرف ${p.discount}% ڈسکاؤنٹ کے ساتھ بہترین کوالٹی حاصل کریں۔${p.city}\n\nآفر محدود وقت کے لیے ہے — ابھی رابطہ کریں۔\n${p.contact}`
-  ],
-  newarrival: [
-    (p) => `${p.emoji} نیا اسٹاک آ گیا ہے! ${p.emoji}\n\nہماری دکان میں ${p.product} کی تازہ ترین ورائٹی دستیاب ہے۔${p.city}\n\nابھی آئیں اور بہترین ڈیزائنز میں سے چنیں۔\n${p.contact}`,
-    (p) => `📦 تازہ ترین ${p.product} پہنچ گئے ہیں!\n\nنئی ڈیزائنز، بہترین کوالٹی، مناسب قیمت۔${p.city}\n\nملاحظہ کرنے کے لیے آج ہی وزٹ کریں۔\n${p.contact}`
-  ],
-  eid: [
-    (p) => `🌙 عید سیل شروع! 🌙\n\n${p.product} پر ${p.discount}% تک ڈسکاؤنٹ — عید کی خوشیاں دوبالا کریں!${p.city}\n\nمحدود اسٹاک، جلدی کریں۔\n${p.contact}`
-  ],
-  weekend: [
-    (p) => `🎉 ویک اینڈ اسپیشل آفر 🎉\n\n${p.product} پر ${p.discount}% ڈسکاؤنٹ صرف اس ہفتے کے لیے!${p.city}\n\nآج ہی فائدہ اٹھائیں۔\n${p.contact}`
-  ],
-  clearance: [
-    (p) => `🚨 اسٹاک کلیئرنس سیل 🚨\n\n${p.product} پر بھاری ڈسکاؤنٹ — ${p.discount}% تک!${p.city}\n\nاسٹاک ختم ہونے سے پہلے خرید لیں۔\n${p.contact}`
-  ],
-  opening: [
-    (p) => `🎊 گرینڈ اوپننگ 🎊\n\nہماری نئی دکان کا افتتاح ہو گیا! ${p.product} پر خصوصی افتتاحی رعایت ${p.discount}%۔${p.city}\n\nآئیں اور جشن میں شامل کریں۔\n${p.contact}`
-  ],
-  festive: [
-    (p) => `${p.emoji} تہوار کی خصوصی سیل ${p.emoji}\n\n${p.product} پر ${p.discount}% تک ڈسکاؤنٹ اس خوشی کے موقع پر۔${p.city}\n\nابھی وزٹ کریں۔\n${p.contact}`
-  ]
-};
+  const biz = document.getElementById('businessType').value;
+  const pType = document.getElementById('postType').value;
+  const discount = document.getElementById('discount').value;
+  const city = document.getElementById('city').value;
+  const contact = document.getElementById('contact').value;
 
-const TEMPLATES_EN = {
-  discount: [
-    (p) => `🔥 BIG SALE ALERT! 🔥\n\nGet up to ${p.discount}% OFF on ${p.product} ${p.emoji}${p.city}\n\nLimited stock, hurry up! Visit us or order now.\n${p.contact}`,
-    (p) => `${p.emoji} Special Offer on ${p.product}!\n\nEnjoy premium quality at ${p.discount}% OFF.${p.city}\n\nOffer valid for a limited time only.\n${p.contact}`
-  ],
-  newarrival: [
-    (p) => `${p.emoji} NEW ARRIVALS! ${p.emoji}\n\nFresh collection of ${p.product} is now available in-store.${p.city}\n\nCome check out the latest designs today.\n${p.contact}`,
-    (p) => `📦 Just Arrived: ${p.product}!\n\nNew designs, premium quality, best prices.${p.city}\n\nVisit us today to explore.\n${p.contact}`
-  ],
-  eid: [
-    (p) => `🌙 EID SALE IS HERE! 🌙\n\nUp to ${p.discount}% OFF on ${p.product} — make your Eid shopping special!${p.city}\n\nLimited stock, hurry up.\n${p.contact}`
-  ],
-  weekend: [
-    (p) => `🎉 WEEKEND SPECIAL 🎉\n\n${p.discount}% OFF on ${p.product}, this weekend only!${p.city}\n\nGrab the deal today.\n${p.contact}`
-  ],
-  clearance: [
-    (p) => `🚨 STOCK CLEARANCE SALE 🚨\n\nHuge discount up to ${p.discount}% on ${p.product}!${p.city}\n\nGrab it before stock runs out.\n${p.contact}`
-  ],
-  opening: [
-    (p) => `🎊 GRAND OPENING 🎊\n\nOur new store is now open! Special opening discount of ${p.discount}% on ${p.product}.${p.city}\n\nJoin us to celebrate.\n${p.contact}`
-  ],
-  festive: [
-    (p) => `${p.emoji} FESTIVE SALE ${p.emoji}\n\nUp to ${p.discount}% OFF on ${p.product} this festive season.${p.city}\n\nVisit us today.\n${p.contact}`
-  ]
-};
+  const emoji = BUSINESS_EMOJI[biz] || "🏪";
+  const labelUr = BUSINESS_LABELS['ur'][biz] || "پروڈکٹس";
+  const labelEn = BUSINESS_LABELS['en'][biz] || "products";
 
-// ---------------- HELPERS ----------------
-function buildProductPhrase(businessType, productName) {
-  const label = BUSINESS_LABELS[currentLang][businessType] || BUSINESS_LABELS[currentLang].general;
-  if (productName && productName.trim().length > 0) {
-    return productName.trim();
-  }
-  return label;
-}
+  let posts = [];
+  let hashtags = "";
 
-function buildCityLine(city) {
-  if (!city || city.trim().length === 0) return '';
-  return `\n📍 ${city.trim()}`;
-}
+  // Hashtags generator
+  hashtags = `#${biz}Shop #${pType} #PakistanBusiness #${city} #DukaanPost`;
 
-function buildContactLine(contact) {
-  if (!contact || contact.trim().length === 0) return currentLang === 'ur' ? 'ابھی رابطہ کریں!' : 'Contact us now!';
-  return currentLang === 'ur' ? `📞 رابطہ: ${contact.trim()}` : `📞 Contact: ${contact.trim()}`;
-}
-
-function getRandomDiscount() {
-  return 50; // Default sweet spot for beautiful template matching
-}
-
-function pickN(arr, n) {
-  const shuffled = [...arr].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, n);
-}
-
-// ---------------- LIVE CANVAS PREVIEW UPDATE LOGIC ----------------
-function updateLivePreview() {
-  const businessType = document.getElementById('businessType').value;
-  const postType = document.getElementById('postType').value;
-  const productNameInput = document.getElementById('productName').value;
-  const discountInput = document.getElementById('discountPercent').value;
-  const cityInput = document.getElementById('cityName').value;
-  const contactInput = document.getElementById('contactInfo').value;
-
-  // 1. Heading logic based on selection
-  let headingText = "NEW ARRIVAL";
-  if (postType === 'discount') headingText = "SPECIAL DISCOUNT";
-  if (postType === 'eid') headingText = "EID SALE OFFER";
-  if (postType === 'weekend') headingText = "WEEKEND OFFER";
-  if (postType === 'clearance') headingText = "CLEARANCE SALE";
-  if (postType === 'opening') headingText = "GRAND OPENING";
-  if (postType === 'festive') headingText = "FESTIVE DEAL";
-
-  const emoji = BUSINESS_EMOJI[businessType] || BUSINESS_EMOJI.general;
-  document.getElementById('canvasHeading').innerHTML = `${emoji}<br>${headingText}`;
-
-  // 2. Body Text Paragraph construction
-  const product = buildProductPhrase(businessType, productNameInput);
-  let detailText = "";
   if (currentLang === 'ur') {
-    detailText = `ہمارے پاس بہترین کوالٹی میں ${product} دستیاب ہے۔ ایک بار ضرور تشریف لائیں اور اپنی پسندیدہ چیزیں حاصل کریں۔`;
+    // ---- URDU TEMPLATES ----
+    let discountLine = discount ? `🎉 آپ کے لیے خصوصی آفر: ${discount} کی بڑی بچت! 🎉\n` : '';
+
+    if (pType === 'sale') {
+      posts.push(
+        `📢 بڑی خوشخبری! ہماری ${labelUr} کی دکان پر شاندار سیل شروع ہو چکی ہے۔ ${emoji}\n\n${discountLine}📍 مقام: ${city}\n📞 ابھی رابطہ کریں اور فائدہ اٹھائیں: ${contact}\n\nجلدی کریں، یہ آفر محدود وقت کے لیے ہے!`
+      );
+      posts.push(
+        `${emoji} سیل! سیل! سیل! ${city} میں سب سے سستی اور معیاری ${labelUr} کی پروڈکٹس اب آپ کی پہنچ میں۔\n\n${discountLine}👉 ابھی وزٹ کریں یا واٹس ایپ پر آرڈر کریں: ${contact}\nمعیار پر کوئی سمجھوتہ نہیں!`
+      );
+    } else if (pType === 'arrival') {
+      posts.push(
+        `✨ نیا سٹاک آگیا! ✨\nہماری دکان پر ${labelUr} کا بالکل لیٹسٹ اور شاندار سٹاک پہنچ چکا ہے۔ ${emoji}\n\n${discountLine}📍 شہر: ${city}\n📲 تصاویر اور تفصیلات کے لیے واٹس ایپ کریں: ${contact}\nایک بار ضرور خدمت کا موقع دیں۔`
+      );
+    } else if (pType === 'eid') {
+      posts.push(
+        `🌙 عید مبارک سپیشل آفر! 🌙\nاس عید پر اپنوں کے لیے خریدیں سب سے بہترین ${labelUr} کی ورائٹی۔ ${emoji}\n\n${discountLine}📍 دکان کا پتا: ${city}\n📞 عید کی بکنگ کے لیے رابطہ کریں: ${contact}\nآئیں اور اپنی عید کی خوشیاں دوبالا کریں۔`
+      );
+    } else if (pType === 'weekend') {
+      posts.push(
+        `🔥 ویک اینڈ دھماکہ ڈیل! 🔥\nصرف اس ہفتے اور اتوار کے لیے ہماری ${labelUr} کی پروڈکٹس پر زبردست آفر۔ ${emoji}\n\n${discountLine}📍 لوکیشن: ${city}\n📞 ابھی کال یا واٹس ایپ کریں: ${contact}`
+      );
+    } else if (pType === 'clearance') {
+      posts.push(
+        `⚠️ سٹاک کلیئرنس سیل! ⚠️\nسب کچھ ختم کرنا ہے۔ ${labelUr} کا تمام پرانا سٹاک اب فیکٹری ریٹ پر حاصل کریں۔ ${emoji}\n\n${discountLine}📍 ایڈریس: ${city}\n📞 رابطہ نمبر: ${contact}\nپہلے آئیں، پہلے پائیں۔`
+      );
+    }
   } else {
-    detailText = `Premium quality ${product} is now available at our store. Come check out our high-grade collection today!`;
+    // ---- ENGLISH TEMPLATES ----
+    let discountLineEn = discount ? `🎉 Special Offer: Get ${discount} today! 🎉\n` : '';
+
+    if (pType === 'sale') {
+      posts.push(
+        `📢 Big News! Mega Sale is now LIVE at our ${labelEn} store. ${emoji}\n\n${discountLineEn}📍 Location: ${city}\n📞 Contact us on WhatsApp: ${contact}\nHurry up! Limited time offer only.`
+      );
+    } else if (pType === 'arrival') {
+      posts.push(
+        `✨ New Arrival! ✨\nDiscover the latest premium collection of ${labelEn} at our shop. ${emoji}\n\n${discountLineEn}📍 City: ${city}\n📲 DM or WhatsApp for prices: ${contact}\nUpgrade your style today!`
+      );
+    } else if (pType === 'eid') {
+      posts.push(
+        `🌙 Eid Mubarak Special Deal! 🌙\nCelebrate this Festive Season with the best quality ${labelEn}. ${emoji}\n\n${discountLineEn}📍 Address: ${city}\n📞 Book your favorites now: ${contact}`
+      );
+    } else if (pType === 'weekend') {
+      posts.push(
+        `🔥 Weekend Dhamaka Offer! 🔥\nExclusive deals on all ${labelEn} available only for this weekend. ${emoji}\n\n${discountLineEn}📍 Location: ${city}\n📲 Order via WhatsApp: ${contact}`
+      );
+    } else if (pType === 'clearance') {
+      posts.push(
+        `⚠️ Stock Clearance Sale! ⚠️\nEverything must go! Get premium ${labelEn} at incredibly low prices. ${emoji}\n\n${discountLineEn}📍 Store Location: ${city}\n📞 Call now: ${contact}\nStock is running out fast!`
+      );
+    }
   }
-  document.getElementById('canvasDetails').textContent = detailText;
 
-  // 3. Metadata updates
-  document.getElementById('canvasLocation').textContent = cityInput.trim() !== "" ? `📍 ${cityInput.trim()}` : "";
-  document.getElementById('canvasContact').textContent = contactInput.trim() !== "" ? `📞 ${contactInput.trim()}` : "";
-
-  // 4. Badge Update
-  const discountVal = discountInput && discountInput.trim() !== '' ? discountInput.trim() : '50';
-  document.getElementById('canvasBadge').innerHTML = `${discountVal}%<br>OFF`;
-}
-
-// Input box controls linked directly to trigger dynamic UI rendering
-['businessType', 'postType', 'productName', 'discountPercent', 'cityName', 'contactInfo'].forEach(id => {
-  document.getElementById(id).addEventListener('input', updateLivePreview);
-  document.getElementById(id).addEventListener('change', updateLivePreview);
-});
-
-// Handling Background Product Image Streams
-document.getElementById('productImage').addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(event) {
-      document.getElementById('canvasImageFrame').style.backgroundImage = `url('${event.target.result}')`;
-    };
-    reader.readAsDataURL(file);
-  }
-});
-
-// ---------------- MAIN GENERATE FUNCTION (CAPTIONS) ----------------
-function generatePosts() {
-  const businessType = document.getElementById('businessType').value;
-  const postType = document.getElementById('postType').value;
-  const productNameInput = document.getElementById('productName').value;
-  const discountInput = document.getElementById('discountPercent').value;
-  const cityInput = document.getElementById('cityName').value;
-  const contactInput = document.getElementById('contactInfo').value;
-
-  const templates = currentLang === 'ur' ? TEMPLATES_UR : TEMPLATES_EN;
-  const templateSet = templates[postType] || templates.discount;
-
-  const params = {
-    product: buildProductPhrase(businessType, productNameInput),
-    discount: discountInput && discountInput.trim() !== '' ? discountInput.trim() : getRandomDiscount(),
-    city: buildCityLine(cityInput),
-    contact: buildContactLine(contactInput),
-    emoji: BUSINESS_EMOJI[businessType] || BUSINESS_EMOJI.general,
-  };
-
-  const chosenTemplates = templateSet.length <= 3 ? templateSet : pickN(templateSet, 3);
-  const posts = chosenTemplates.map(fn => fn(params));
-  const hashtags = pickN(HASHTAGS[businessType] || HASHTAGS.general, 4).join(' ');
-
-  renderResults(posts, hashtags);
-  
-  // Instantly sync preview design layout and exhibit the download button trigger
-  updateLivePreview();
-  document.getElementById('downloadImageBtn').style.display = 'block';
-}
-
-function renderResults(posts, hashtags) {
+  // Render to UI
   const resultsEl = document.getElementById('results');
   resultsEl.innerHTML = '';
   resultsEl.classList.add('show');
@@ -247,14 +200,14 @@ function renderResults(posts, hashtags) {
 
     const copyBtn = document.createElement('button');
     copyBtn.className = 'copy-btn';
-    copyBtn.textContent = '📋 Copy Post Text';
+    copyBtn.textContent = '📋 Copy Post';
     copyBtn.addEventListener('click', () => {
       const fullText = postText + '\n\n' + hashtags;
       navigator.clipboard.writeText(fullText).then(() => {
         copyBtn.textContent = '✅ Copied!';
         copyBtn.classList.add('copied');
         setTimeout(() => {
-          copyBtn.textContent = '📋 Copy Post Text';
+          copyBtn.textContent = '📋 Copy Post';
           copyBtn.classList.remove('copied');
         }, 1800);
       });
@@ -267,22 +220,5 @@ function renderResults(posts, hashtags) {
     resultsEl.appendChild(card);
   });
 
-  resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-// ---------------- CANVAS IMAGE DOWNLOAD TRIGGER ----------------
-document.getElementById('downloadImageBtn').addEventListener('click', () => {
-  const poster = document.getElementById('posterCanvas');
-  
-  // useCORS parameters included to authorize local system device image captures seamlessly
-  html2canvas(poster, { useCORS: true, scale: 2 }).then(canvas => {
-    let link = document.createElement('a');
-    link.download = `dukaan-post-${new Date().toISOString().slice(0,10)}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-  });
+  resultsEl.scrollIntoView({ behavior: 'smooth' });
 });
-
-document.getElementById('generateBtn').addEventListener('click', generatePosts);
-// Fire once on load to populate basic state structure seamlessly
-updateLivePreview();

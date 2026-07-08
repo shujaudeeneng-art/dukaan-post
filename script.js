@@ -32,13 +32,6 @@ if(bizSelect) {
   });
 }
 
-const BUSINESS_LABELS = {
-  ur: { clothing: "کپڑوں", mobile: "موبائل", restaurant: "کھانے", bakery: "بیکری آئٹمز", cosmetics: "کاسمیٹکس", electronics: "الیکٹرانکس", grocery: "گروسری", shoes: "جوتوں", jewelry: "زیورات", general: "پروڈکٹس" },
-  en: { clothing: "clothing", mobile: "mobile phone", restaurant: "food", bakery: "bakery items", cosmetics: "cosmetics", electronics: "electronics", grocery: "grocery", shoes: "footwear", jewelry: "jewelry", general: "products" }
-};
-
-const BUSINESS_EMOJI = { clothing: "👗👚", mobile: "📱", restaurant: "🍽️", bakery: "🍰", cosmetics: "💄", electronics: "📺", grocery: "🛒", shoes: "👟", jewelry: "💍", general: "📦" };
-
 function generatePost() {
   const biz = document.getElementById('businessType').value;
   const pType = document.getElementById('postType').value;
@@ -51,41 +44,43 @@ function generatePost() {
     return;
   }
 
-  const emoji = BUSINESS_EMOJI[biz] || "🏪";
-  const labelUr = BUSINESS_LABELS['ur'][biz] || "پروڈکٹس";
-  const labelEn = BUSINESS_LABELS['en'][biz] || "products";
-
   let posts = [];
-  let hashtags = `#${biz}Shop #${pType} #${city} #DukaanPost`;
-
-  // Handle optional discount
+  let hashtags = `#${biz}Shop #${pType} #${city} #SmallBusiness #Pakistan`;
+  
   let hasDiscount = (discount && discount !== "No Discount");
-  let discountLineUr = hasDiscount ? `🎉 آپ کے لیے خصوصی آفر: ${discount} کی بڑی بچت! 🎉\n` : '';
-  let discountLineEn = hasDiscount ? `🎉 Special Offer: Get ${discount} today! 🎉\n` : '';
+  let discTextUr = hasDiscount ? `🔥 محدود وقت کی آفر: پائیں فلیٹ ${discount} کا بڑا ڈسکاؤنٹ! 🔥\n` : '';
+  let discTextEn = hasDiscount ? `🔥 LIMITED TIME OFFER: Get Flat ${discount} OFF on everything! 🔥\n` : '';
 
   if (currentLang === 'ur') {
-    if (pType === 'sale') {
-      posts.push(`📢 بڑی خوشخبری! ہماری ${labelUr} کی دکان پر شاندار سیل شروع ہو چکی ہے۔ ${emoji}\n\n${discountLineUr}📍 مقام: ${city}\n📞 ابھی رابطہ کریں: ${contact}\n\nجلدی کریں، یہ آفر محدود وقت کے لیے ہے!`);
-    } else if (pType === 'arrival') {
-      posts.push(`✨ نیا سٹاک آگیا! ✨\nہماری دکان پر ${labelUr} کا بالکل لیٹسٹ سٹاک پہنچ چکا ہے۔ ${emoji}\n\n${discountLineUr}📍 شہر: ${city}\n📲 تصاویر اور تفصیلات کے لیے واٹس ایپ کریں: ${contact}`);
-    } else if (pType === 'eid') {
-      posts.push(`🌙 عید مبارک سپیشل آفر! 🌙\nاس عید پر خریدیں سب سے بہترین ${labelUr} کی ورائٹی۔ ${emoji}\n\n${discountLineUr}📍 لوکیشن: ${city}\n📞 بکنگ کے لیے رابطہ کریں: ${contact}`);
-    } else if (pType === 'weekend') {
-      posts.push(`🔥 ویک اینڈ دھماکہ ڈیل! 🔥\nصرف اس ہفتے اور اتوار کے لیے ہماری ${labelUr} کی پروڈکٹس پر زبردست آفر۔ ${emoji}\n\n${discountLineUr}📍 لوکیشن: ${city}\n📞 ابھی کال یا واٹس ایپ کریں: ${contact}`);
-    } else if (pType === 'clearance') {
-      posts.push(`⚠️ سٹاک کلیئرنس سیل! ⚠️\n${labelUr} کا تمام سٹاک اب فیکٹری ریٹ پر حاصل کریں۔ ${emoji}\n\n${discountLineUr}📍 ایڈریس: ${city}\n📞 رابطہ نمبر: ${contact}`);
+    // ==================== URDU LONG PROFESSIONAL POSTS ====================
+    if (biz === 'mobile') {
+      posts.push(`📱 سمارٹ فونز اور موبائل اسیسریز پر سب سے دھماکے دار آفرز! 📱\n\nکیا آپ اپنے پرانے فون سے تنگ ہیں یا ایک بہترین گیجٹ کی تلاش میں ہیں؟ ہم لائے ہیں آپ کے لیے بہترین سلوشن!\n\n${discTextUr}✨ ہمارے ہاں دستیاب ہے:\n✅ تمام برانڈز کے 100% اوریجنل اور آفیشل فونز\n✅ امپورٹڈ پریمیم بیک کورز اور گلاس پروٹیکٹرز\n✅ ہائی سپیڈ چارجرز اور اوریجنل ہینڈز فری\n✅ پروفیشنل موبائل ریپیرنگ (وارنٹی کے ساتھ)\n\n🌟 ہم کیوں؟\n✔️ مارکیٹ سے سستی اور مناسب قیمت\n✔️ تبدیل کرنے کی آسان سہولت (Easy Exchange Policy)\n✔️ چیکنگ وارنٹی اور بہترین کسٹمر سروس\n\n🚚 پورے ${city} میں فاسٹ ہوم ڈیلیوری کی سہولت بھی دستیاب ہے!\n\n📞 ابھی واٹس ایپ کریں یا دکان وزٹ کریں:\n👉 فون نمبر: ${contact}\n📍 لوکیشن: ${city}`);
+    } 
+    else if (biz === 'clothing') {
+      posts.push(`👗 فیشن، کوالٹی اور پریمیم فیبرک اب آپ کے بجٹ میں! 👚\n\nاپنے لک کو مزید خوبصورت اور سٹائلش بنائیں۔ ہمارے نئے اور خوبصورت کلیکشن پر سیل اور فیشن کا زبردست ملاپ!\n\n${discTextUr}✨ ہماری خاصیت:\n✅ 100% گارنٹیڈ کپڑا اور پریمیم کوالٹی ٹیچنگ\n✅ رنگ اور بر کی مکمل وارنٹی\n✅ ٹرینڈنگ اور بالکل نئے یونیک ڈیزائنز\n✅ لیڈیز، جینٹس اور کڈز کی وسیع ورائٹی\n\n🌟 خاص آفر:\nاگر کپڑے میں کوئی بھی نقص ہو تو ہم بغیر کسی سوال کے تبدیل کر کے دیں گے!\n\n🚚 آپ کے گھر تک محفوظ ڈیلیوری (${city}):\n👉 ابھی اپنا پسندیدہ سوٹ بک کرنے کے لیے واٹس ایپ کریں: ${contact}\n📍 دکان کا پتا: ${city}`);
+    } 
+    else if (biz === 'restaurant') {
+      posts.push(`🍽️ لاجواب ذائقہ، صاف ستھرا ماحول اور مٹھی بھر خوشیاں! 🍔\n\nکیا آپ کو بھوک لگی ہے؟ تو دیر کس بات کی! ہم لائے ہیں آپ کے شہر کا سب سے لذیذ اور معیاری کھانا۔\n\n${discTextUr}✨ ہمارے مینو میں شامل ہے:\n✅ جوسی برگرز اور کرسپی فرائز\n✅ روایتی کڑاہی، بار بی کیو اور دیسی کھانے\n✅ ہائیجینک کچن اور 100% تازہ گوشت کا استعمال\n✅ فیملی کے بیٹھنے کے لیے بہترین اور پرسکون ماحول\n\n🌟 کسٹمر سروس:\nہم کھانے کے ذائقے اور صفائی پر کوئی سمجھوتہ نہیں کرتے۔ ہر آرڈر گرما گرم اور تازہ تیار کیا جاتا ہے۔\n\n🛵 گھر بیٹھے گرما گرم کھانا منگوائیں:\n📞 آرڈر کے لیے ابھی کال یا واٹس ایپ کریں: ${contact}\n📍 لوکیشن: ${city} (فاسٹ ہوم ڈیلیوری دستیاب)`);
+    } 
+    else {
+      // General & Other categories
+      posts.push(`🏪 اب کوالٹی اور بچت ایک ساتھ — پریمیم پروڈکٹس مارکیٹ سے کم ریٹ پر! 📦\n\nہمیشہ کی طرح بہترین معیار اور سستے دام۔ ہم کسٹمر کے اعتماد کو سب سے اوپر رکھتے ہیں۔\n\n${discTextUr}✨ ہماری سروسز کی خصوصیات:\n✅ 100% اوریجنل اور پریمیم کوالٹی کی اشیاء\n✅ مارکیٹ سے چیلنجڈ کم قیمتیں\n✅ کسٹمر سپورٹ اور آسان واپسی کی سہولت\n\n🚚 ہوم ڈیلیوری کی سہولت بھی دستیاب ہے تاکہ آپ کا وقت بچے!\n\n📞 مزید تفصیلات اور آرڈر کے لیے رابطہ کریں:\n👉 واٹس ایپ: ${contact}\n📍 لوکیشن: ${city}`);
     }
-  } else {
-    if (pType === 'sale') {
-      posts.push(`📢 Big News! Mega Sale is now LIVE at our ${labelEn} store. ${emoji}\n\n${discountLineEn}📍 Location: ${city}\n📞 WhatsApp: ${contact}\nHurry up!`);
-    } else if (pType === 'arrival') {
-      posts.push(`✨ New Arrival! ✨\nDiscover the latest collection of ${labelEn} at our shop. ${emoji}\n\n${discountLineEn}📍 City: ${city}\n📲 WhatsApp for prices: ${contact}`);
-    } else if (pType === 'eid') {
-      posts.push(`🌙 Eid Mubarak Special Deal! 🌙\nCelebrate this Festive Season with the best quality ${labelEn}. ${emoji}\n\n${discountLineEn}📍 Address: ${city}\n📞 Book yours now: ${contact}`);
-    } else if (pType === 'weekend') {
-      posts.push(`🔥 Weekend Dhamaka Offer! 🔥\nExclusive deals on all ${labelEn} available only for this weekend. ${emoji}\n\n${discountLineEn}📍 Location: ${city}\n📲 Order via WhatsApp: ${contact}`);
-    } else if (pType === 'clearance') {
-      posts.push(`⚠️ Stock Clearance Sale! ⚠️\nEverything must go! Get premium ${labelEn} at low prices. ${emoji}\n\n${discountLineEn}📍 Location: ${city}\n📞 Call now: ${contact}`);
+  } 
+  else {
+    // ==================== ENGLISH LONG PROFESSIONAL POSTS ====================
+    if (biz === 'mobile') {
+      document.body.dir = "ltr";
+      posts.push(`📱 Upgrade Your Tech Game With The Best Mobile Deals! 📱\n\nLooking for a new smartphone or high-quality accessories? You are at the right place!\n\n${discTextEn}✨ What We Offer:\n✅ 100% Original & Official Mobile Phones\n✅ Premium Imported Back Covers & Tempered Glass\n✅ High-Speed Branded Chargers & Audio Devices\n✅ Expert Repairing Services with warranty\n\n🌟 Why Choose Us?\n✔️ Market Competitive Rates\n✔️ Easy Replacement Policy\n✔️ Exceptional After-Sales Support\n\n🚚 Fast Home Delivery Available across ${city}!\n\n📞 Order Now via WhatsApp:\n👉 Contact: ${contact}\n📍 Location: ${city}`);
+    } 
+    else if (biz === 'clothing') {
+      posts.push(`👗 Experience Premium Fabric & Trendy Fashion Within Your Budget! 👚\n\nRedefine your style with our premium clothing collection. Perfectly crafted for your comfort and elegance.\n\n${discTextEn}✨ Features of Our Collection:\n✅ 100% Guaranteed Premium Fabric & Stitching\n✅ No-Fade Color & Material Warranty\n✅ Latest Trendy Designs for all age groups\n\n🌟 Our Promise:\nEasy size exchange and hassle-free returns if you are not satisfied!\n\n🚚 Safe & Fast Shipping to your doorstep in ${city}.\n📲 WhatsApp us now to get pictures & place your order: ${contact}`);
+    } 
+    else if (biz === 'restaurant') {
+      posts.push(`🍽️ Craving Something Delicious? Taste the Best Food in Town! 🍔\n\nSatisfy your hunger with our hygienic, fresh, and mouth-watering dishes made just for you.\n\n${discTextEn}✨ On Our Menu:\n✅ Premium Quality Burgers, Pizzas & Platters\n✅ Traditional & Authentic Local Cuisine\n✅ 100% Fresh Ingredients & Hygienic Kitchen\n\n🛵 Get your food delivered HOT and FRESH!\n📞 Call or WhatsApp now to order: ${contact}\n📍 Location: ${city}`);
+    } 
+    else {
+      posts.push(`🏪 Premium Quality & Unbeatable Savings — Shop With Confidence! 📦\n\nWe bring you top-tier products at prices that fit your pocket perfectly.\n\n${discTextEn}✨ Why Shop From Us?\n✅ 100% Original Products\n✅ Budget-Friendly Rates\n✅ Reliable Customer Service\n\n🚚 Convenient delivery services to save your valuable time!\n📞 Get in touch today:\n👉 WhatsApp: ${contact}\n📍 Location: ${city}`);
     }
   }
 
@@ -99,19 +94,21 @@ function generatePost() {
     const textDiv = document.createElement('div');
     textDiv.className = 'result-text';
     textDiv.dir = currentLang === 'ur' ? 'rtl' : 'ltr';
+    textDiv.style.textAlign = currentLang === 'ur' ? 'right' : 'left';
     textDiv.textContent = postText;
 
     const hashtagDiv = document.createElement('div');
     hashtagDiv.className = 'hashtag-row';
+    hashtagDiv.style.textAlign = currentLang === 'ur' ? 'right' : 'left';
     hashtagDiv.textContent = hashtags;
 
     const copyBtn = document.createElement('button');
     copyBtn.className = 'copy-btn';
-    copyBtn.textContent = '📋 Copy Post';
+    copyBtn.textContent = '📋 Copy Full Post';
     copyBtn.onclick = function() {
       navigator.clipboard.writeText(postText + '\n\n' + hashtags);
       copyBtn.textContent = '✅ Copied!';
-      setTimeout(() => { copyBtn.textContent = '📋 Copy Post'; }, 1500);
+      setTimeout(() => { copyBtn.textContent = '📋 Copy Full Post'; }, 1500);
     };
 
     card.appendChild(textDiv);
